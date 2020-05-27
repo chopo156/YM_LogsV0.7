@@ -16,8 +16,8 @@ end)
 
 
 
-AddEventHandler('playerDropped', function(reason) 
-    sendToDiscord('[Player Logout] \n' .. GetPlayerName(source) .. 'Out From The Server. \n **Reason: ' .. reason)
+AddEventHandler('playerDropped', function(reason)  
+    sendToDiscord('[Player Logout] \n' .. GetPlayerName(source) .. ' Out From The Server. \n **Reason: ' .. reason)
 end)
 
 
