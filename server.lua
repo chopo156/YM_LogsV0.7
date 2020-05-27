@@ -11,7 +11,7 @@ local time = os.date("%Y/%m/%d %X")
 
 
 AddEventHandler('playerConnecting', function() 
-    sendToDiscord('[Player Connecting] \n' .. GetPlayerName(source) .. 'Connect to The Server.')
+    sendToDiscord('[Player Connecting] \n' .. GetPlayerName(source) .. ' Connect to The Server.')
 end)
 
 
