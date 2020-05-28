@@ -6,24 +6,25 @@ local YM_WebHook = 'https://discordapp.com/api/webhooks/713970556629811230/zIB5n
 local YM_image = 'https://cdn.discordapp.com/attachments/713810142654627920/714112730285736027/fdg.png'
 --local LogsName = 'YM_Logs | By Yrahmial'
 local ym = message
+local YM = playername
 local time = os.date("%Y/%m/%d %X")
 
 
 
-AddEventHandler('playerConnecting', function() 
+AddEventHandler('playerConnecting', function()
     sendToDiscord('[Player Connecting] \n' .. GetPlayerName(source) .. ' Connect to The Server.')
 end)
 
 
 
-AddEventHandler('playerDropped', function(reason)  
+AddEventHandler('playerDropped', function(reason) 
     sendToDiscord('[Player Logout] \n' .. GetPlayerName(source) .. ' Out From The Server. \n **Reason: ' .. reason)
 end)
 
 
 
-AddEventHandler('chatMessage', function(source, playername, ym)
-    sendToDiscord(playername, ym)
+AddEventHandler('chatMessage', function(source, YM, ym)
+    sendToDiscord(YM, ym)
     PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username = GetPlayerName(source), embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
 end)
 
@@ -35,9 +36,8 @@ AddEventHandler('playerDied',function(ym)
 end)
 
 
-
 --[[AddEventHandler('playerSpawned', function(source)
-    sendToDiscord('Player Spawned \n\n **Spawned Successfully**')
+    sendToDiscord("Player Spawned" \n\n "**Spawned Successfully**")
 end)]]--
 
 
