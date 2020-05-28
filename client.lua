@@ -1,3 +1,6 @@
+--[cradit to Tazi0]--
+
+
 local Melee = { -1569615261, 1737195953, 1317494643, -1786099057, 1141786504, -2067956739, -868994466 }
 local Bullet = { 453432689, 1593441988, 584646201, -1716589765, 324215364, 736523883, -270015777, -1074790547, -2084633992, -1357824103, -1660422300, 2144741730, 487013001, 2017895192, -494615257, -1654528753, 100416529, 205991906, 1119849093 }
 local Knife = { -1716189206, 1223143800, -1955384325, -1833087301, 910830060, }
@@ -49,7 +52,7 @@ Citizen.CreateThread(function()
             elseif checkArray (Drown, death) then
                 TriggerServerEvent('playerDied', playerName .. " drowned")
             else
-                TriggerServerEvent('playerDied', playerName .. " was killed by an unknown force")
+                TriggerServerEvent('playerDied', playerName .. " was killed by self")
                 --print(death)
             end
 
