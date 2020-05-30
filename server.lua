@@ -29,7 +29,7 @@ local YMservername = GetConvar("sv_hostname")
 %X	time (e.g., 23:48:10)
 %Y	full year (1998)
 %y	two-digit year (98) [00-99]
-%%	the character `%´]]--
+%%	the character `%´]]
 
 
 AddEventHandler('playerConnecting', function()
