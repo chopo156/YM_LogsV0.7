@@ -60,11 +60,11 @@ end)
 
 
 
-function sendToDiscord(name, ym, color)
+function sendToDiscord(YM, ym, color)
   local connect = {
         {
             ['color'] = 0255196,
-            ['title'] = '**'.. logs ..'**',
+            ['title'] = '**'.. YM ..'**',
             ['description'] = ym,
             ['footer'] = {
             --['text'] = LogsName,
