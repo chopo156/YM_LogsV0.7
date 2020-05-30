@@ -8,7 +8,6 @@ local YM_image = 'https://cdn.discordapp.com/attachments/713810142654627920/7141
 local ym = message
 local YM = playername
 local time = os.date("%c")
-local YMservername = GetConvar("sv_hostname")
 
 
 
@@ -31,7 +30,7 @@ local YMservername = GetConvar("sv_hostname")
 %X	time (e.g., 23:48:10)
 %Y	full year (1998)
 %y	two-digit year (98) [00-99]
-%%	the character `%´]]
+%%	the character `%ֲ´]]
 
 
 AddEventHandler('playerConnecting', function()
@@ -63,10 +62,9 @@ end)
     sendToDiscord("Player Spawned" \n\n "**Spawned Successfully**")
 end)]]--
 
-
 AddEventHandler('onServerResourceStart', function(resource)
     if GetCurrentResourceName() == resource then
-        sendToDiscord ('[Server Status] \n\n On \n\n server name: ```' .. YMservername .. '```')
+        sendToDiscord ('[Server Status] \n\n On')
         PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username = 'YM_Logs | By Yrahmial', embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
     end
 end)
