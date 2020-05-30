@@ -64,11 +64,11 @@ function sendToDiscord(name, ym, color)
   local connect = {
         {
             ['color'] = 0255196,
-            ['title'] = '**'.. name ..'**',
+            ['title'] = '**'.. logs ..'**',
             ['description'] = ym,
             ['footer'] = {
             --['text'] = LogsName,
-            ['text'] = time,
+            ['text'] = '**'.. time ..'**',
             },
         }
     }
