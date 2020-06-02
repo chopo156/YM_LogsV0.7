@@ -6,8 +6,9 @@ local YM_WebHook = 'https://discordapp.com/api/webhooks/713970556629811230/zIB5n
 local YM_image = 'https://cdn.discordapp.com/attachments/713810142654627920/714112730285736027/fdg.png'
 --local LogsName = 'YM_Logs | By Yrahmial'
 local ym = message
-local YM = playername
+local YM = os.date("%c")
 local time = os.date("%c")
+
 
 
 
@@ -35,20 +36,25 @@ local time = os.date("%c")
 
 
 AddEventHandler('playerConnecting', function()
-    sendToDiscord('[Player Connecting] \n' .. GetPlayerName(source) .. ' Connect to The Server.')
+    local playerIP = GetPlayerEndpoint(source)
+    local playerPing = GetPlayerPing(source)
+    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerPing .. '``` \n\n', 'Player Ping ```' .. playerPing .. '```')
 end)
 
 
 
 AddEventHandler('playerDropped', function(reason) 
-    sendToDiscord('[Player Logout] \n' .. GetPlayerName(source) .. ' Out From The Server. \n Reason: ' .. reason)
+    local playerIP = GetPlayerEndpoint(source)
+    local playerPing = GetPlayerPing(source)
+    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '```')
 end)
 
 
 
 AddEventHandler('chatMessage', function(source, YM, ym)
+    local name = GetPlayerName(source)
     sendToDiscord(YM, ym)
-    PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username = GetPlayerName(source), embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username =  name .. " | " .. GetPlayerIdentifier(source), embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
 end)
 
 
