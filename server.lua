@@ -6,7 +6,7 @@ local YM_WebHook = 'https://discordapp.com/api/webhooks/713970556629811230/zIB5n
 local YM_image = 'https://cdn.discordapp.com/attachments/713810142654627920/714112730285736027/fdg.png'
 --local LogsName = 'YM_Logs | By Yrahmial'
 local ym = message
-local YM = os.date("%c")
+local YM = name
 local time = os.date("%c")
 
 
