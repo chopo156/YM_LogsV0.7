@@ -90,7 +90,7 @@ end)
 function sendToDiscord(YM, ym, color)
     local connect = {
           {
-              ['color'] = 123, 50, 254, -- here you can change the color!!
+              ['color'] = 255, 0, 0, -- here you can change the color!!
               ['title'] = '**'.. YM ..'**',
               ['description'] = ym,
               ['footer'] = {
