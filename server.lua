@@ -2,8 +2,8 @@
 -- Coded By Yrahmial#7579 --
 ----------------------------
 
-local YM_WebHook = 'https://discordapp.com/api/webhooks/713970556629811230/zIB5n9G66leV-AWSJQLqfSFoSBPOKe8Etjl-dlenXSFPfl5p-A7mkutmj5QznCHp2QWb'
-local YM_image = 'https://cdn.discordapp.com/attachments/713810142654627920/714112730285736027/fdg.png'
+local YM_WebHook = 'Your WebHook Here'
+local YM_image = 'Your Image Here'
 --local LogsName = 'YM_Logs | By Yrahmial'
 local ym = message
 local YM = name
