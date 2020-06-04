@@ -38,7 +38,7 @@ local time = os.date("%c")
 AddEventHandler('playerConnecting', function()
     local playerIP = GetPlayerEndpoint(source)
     local playerPing = GetPlayerPing(source)
-    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerPing .. '``` \n\n', 'Player Ping ```' .. playerPing .. '```')
+    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerIP .. '``` \n\n', 'Player Ping ```' .. playerPing .. '```')
 end)
 
 
