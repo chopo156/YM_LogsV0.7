@@ -54,7 +54,7 @@ end)
 AddEventHandler('chatMessage', function(source, YM, ym)
     local name = GetPlayerName(source)
     sendToDiscord(YM, ym)
-    PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username =  name .. " | " .. GetPlayerIdentifier(source), embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username =  'YM_Logs | By Yrahmial', embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
 end)
 
 
