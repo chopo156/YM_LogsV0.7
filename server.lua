@@ -95,7 +95,7 @@ function sendToDiscord(YM, ym, color)
               ['description'] = ym,
               ['footer'] = {
               --['text'] = LogsName,
-              ['text'] = time,
+              ['text'] = ..time
               },
           }
       }
