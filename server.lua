@@ -38,7 +38,7 @@ AddEventHandler('playerConnecting', function()
     local playerIP = GetPlayerEndpoint(source)
     local playerPing = GetPlayerPing(source)
     local steam = GetPlayerIdentifier(source)
-    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerIP .. '``` \n\n [Time] ```' .. time .. '```\n\n[Steam Hex]   ```' .. steam .. '```')
+    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerIP .. '\n\n[Steam Hex]   ```' .. steam .. '```')
 end)
 
 
@@ -46,7 +46,7 @@ end)
 AddEventHandler('playerDropped', function(reason) 
     local playerIP = GetPlayerEndpoint(source)
     local playerPing = GetPlayerPing(source)
-    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '```  ```\n\n[Steam Hex]   ```' .. steam .. '```')
+    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '``` \n\n[Steam Hex]   ```' .. steam .. '```')
 end)
 
 
@@ -94,7 +94,7 @@ function sendToDiscord(YM, ym, color)
               ['title'] = '**'.. YM ..'**',
               ['description'] = ym,
               ['footer'] = {
-              ['text'] = ServerName,
+              --['text'] = ServerName,
               ['text'] = time,
               },
           }
