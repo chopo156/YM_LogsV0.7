@@ -2,8 +2,9 @@
 -- Coded By Yrahmial#7579 --
 ----------------------------
 
-local YM_WebHook = 'Your WebHook here'
-local YM_image = 'Your image here'
+local YM_WebHook = 'https://discordapp.com/api/webhooks/719945367327604817/jgkh5WL40H8qywQZ22d5DSDY-yoCcJZu0vXMe3GazdsN27Z0RezJ1tFlwx1uxeHGbGZm'
+local YM_image = 'https://cdn.discordapp.com/attachments/719927303072907354/719946612092174507/empire.png'
+--local LogsName = 'YM_Logs | By Yrahmial'
 local ym = message
 local YM = name
 local time = os.date("%c")
@@ -37,8 +38,7 @@ local time = os.date("%c")
 AddEventHandler('playerConnecting', function()
     local playerIP = GetPlayerEndpoint(source)
     local playerPing = GetPlayerPing(source)
-    local steam = GetPlayerIdentifier(source)
-    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerIP .. '\n\n[Steam Hex]   ```' .. steam .. '```')
+    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerIP .. '``` \n\n', 'Player Ping ```' .. playerPing .. '```')
 end)
 
 
@@ -46,7 +46,7 @@ end)
 AddEventHandler('playerDropped', function(reason) 
     local playerIP = GetPlayerEndpoint(source)
     local playerPing = GetPlayerPing(source)
-    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '``` \n\n[Steam Hex]   ```' .. steam .. '```')
+    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '```')
 end)
 
 
@@ -94,7 +94,7 @@ function sendToDiscord(YM, ym, color)
               ['title'] = '**'.. YM ..'**',
               ['description'] = ym,
               ['footer'] = {
-              --['text'] = ServerName,
+              --['text'] = LogsName,
               ['text'] = time,
               },
           }
