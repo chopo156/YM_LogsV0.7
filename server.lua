@@ -4,7 +4,6 @@
 
 local YM_WebHook = 'Your WebHook here'
 local YM_image = 'Your image here'
-local ServerName = 'Your Server name here'
 local ym = message
 local YM = name
 local time = os.date("%c")
@@ -47,7 +46,7 @@ end)
 AddEventHandler('playerDropped', function(reason) 
     local playerIP = GetPlayerEndpoint(source)
     local playerPing = GetPlayerPing(source)
-    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '``` \n\n [Time] ```' .. time .. '```\n\n[Steam Hex]   ```' .. steam .. '```')
+    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '```  ```\n\n[Steam Hex]   ```' .. steam .. '```')
 end)
 
 
@@ -62,7 +61,7 @@ end)
 
 RegisterServerEvent('playerDied')
 AddEventHandler('playerDied',function(ym)
-    sendToDiscord('[Death log] \n\n [Time] \n  ```' ..time.. '```', ym)
+    sendToDiscord('[Death log]', ym)
 end)
 
 
@@ -72,7 +71,7 @@ end)]]--
 
 AddEventHandler('onServerResourceStart', function(resource)
     if GetCurrentResourceName() == resource then
-        sendToDiscord ('[Server Status] \n\n On \n\n [Time] \n  ```' ..time.. '```')
+        sendToDiscord ('[Server Status] \n\n On')
         PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username = 'YM_Logs | By Yrahmial', embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
     end
 end)
@@ -81,7 +80,7 @@ end)
 
 AddEventHandler('onServerResourceStop', function(resource)
     if GetCurrentResourceName() == resource then
-        sendToDiscord ('[Server Status] \n\n off \n\n [Time] \n  ```' ..time.. '```')
+        sendToDiscord ('[Server Status] \n\n off')
         PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username = 'YM_Logs | By Yrahmial', embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
     end
 end)
@@ -96,6 +95,7 @@ function sendToDiscord(YM, ym, color)
               ['description'] = ym,
               ['footer'] = {
               ['text'] = ServerName,
+              ['text'] = time,
               },
           }
       }
