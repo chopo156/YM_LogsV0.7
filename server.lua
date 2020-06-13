@@ -2,9 +2,9 @@
 -- Coded By Yrahmial#7579 --
 ----------------------------
 
-local YM_WebHook = 'Your WebHook Here'
-local YM_image = 'Your Image Here'
---local LogsName = 'YM_Logs | By Yrahmial'
+local YM_WebHook = 'Your WebHook here'
+local YM_image = 'Your image here'
+local ServerName = 'Your Server name here'
 local ym = message
 local YM = name
 local time = os.date("%c")
@@ -38,7 +38,8 @@ local time = os.date("%c")
 AddEventHandler('playerConnecting', function()
     local playerIP = GetPlayerEndpoint(source)
     local playerPing = GetPlayerPing(source)
-    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerIP .. '``` \n\n', 'Player Ping ```' .. playerPing .. '```')
+    local steam = GetPlayerIdentifier(source)
+    sendToDiscord('[Player Connecting] \n\n Player Name  ```' .. GetPlayerName(source) .. '``` \n\n Player IP   ```' .. playerIP .. '``` \n\n [Time] ```' .. time .. '```\n\n[Steam Hex]   ```' .. steam .. '```')
 end)
 
 
@@ -46,7 +47,7 @@ end)
 AddEventHandler('playerDropped', function(reason) 
     local playerIP = GetPlayerEndpoint(source)
     local playerPing = GetPlayerPing(source)
-    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '```')
+    sendToDiscord('[Player Disconnect] \n\n Player Name   ```' .. GetPlayerName(source) .. '``` \n\n Player IP  ```' .. playerIP .. '```\n\n Reason    ```' .. reason .. '``` \n\n [Time] ```' .. time .. '```\n\n[Steam Hex]   ```' .. steam .. '```')
 end)
 
 
@@ -61,7 +62,7 @@ end)
 
 RegisterServerEvent('playerDied')
 AddEventHandler('playerDied',function(ym)
-    sendToDiscord('[Death log]', ym)
+    sendToDiscord('[Death log] \n\n [Time] \n  ```' ..time.. '```', ym)
 end)
 
 
@@ -71,7 +72,7 @@ end)]]--
 
 AddEventHandler('onServerResourceStart', function(resource)
     if GetCurrentResourceName() == resource then
-        sendToDiscord ('[Server Status] \n\n On')
+        sendToDiscord ('[Server Status] \n\n On \n\n [Time] \n  ```' ..time.. '```')
         PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username = 'YM_Logs | By Yrahmial', embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
     end
 end)
@@ -80,7 +81,7 @@ end)
 
 AddEventHandler('onServerResourceStop', function(resource)
     if GetCurrentResourceName() == resource then
-        sendToDiscord ('[Server Status] \n\n off')
+        sendToDiscord ('[Server Status] \n\n off \n\n [Time] \n  ```' ..time.. '```')
         PerformHttpRequest(YM_WebHook, function(err, text, headers) end, 'POST', json.encode({username = 'YM_Logs | By Yrahmial', embeds = connect, avatar_url = YM_image}), { ['Content-Type'] = 'application/json' })
     end
 end)
@@ -94,8 +95,7 @@ function sendToDiscord(YM, ym, color)
               ['title'] = '**'.. YM ..'**',
               ['description'] = ym,
               ['footer'] = {
-              --['text'] = LogsName,
-              ['text'] = ..time
+              ['text'] = ServerName,
               },
           }
       }
