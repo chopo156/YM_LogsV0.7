@@ -7,7 +7,6 @@ local YM_image = 'https://cdn.discordapp.com/attachments/719927303072907354/7199
 --local LogsName = 'YM_Logs | By Yrahmial'
 local ym = message
 local YM = name
-local time = os.date("%c")
 
 
 
@@ -95,7 +94,7 @@ function sendToDiscord(YM, ym, color)
               ['description'] = ym,
               ['footer'] = {
               --['text'] = LogsName,
-              ['text'] = time,
+              ['text'] = os.date("%c"),
               },
           }
       }
