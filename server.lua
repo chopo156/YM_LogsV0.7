@@ -94,7 +94,7 @@ function sendToDiscord(YM, ym, color)
               ['description'] = ym,
               ['footer'] = {
               --['text'] = LogsName,
-              ['text'] = os.date("%c"),
+              ['text'] = os.date("%Y/%m/%d %X"),
               },
           }
       }
